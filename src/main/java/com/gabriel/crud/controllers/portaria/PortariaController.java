@@ -20,8 +20,8 @@ public class PortariaController {
         return portariaService.entrada(id);
     }
 
-    @PostMapping("/saida/{id}")
-    public Portaria saidaAluno(@PathVariable("id") Long id){
+    @PostMapping("/saida/{aluno_id}")
+    public Portaria saidaAluno(@PathVariable("aluno_id") Long id){
         return portariaService.saida(id);
     }
 

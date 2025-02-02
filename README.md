@@ -1,7 +1,6 @@
 # Projeto Escola - Spring Boot
 
-Este projeto é uma aplicação completa desenvolvida em **Spring Boot** para gerenciar escolas e alunos. Ele inclui cache, conexão com **PostgreSQL** e suporte para **deploy via Docker**.
-
+Este projeto é uma aplicação completa desenvolvida em **Spring Boot** para gerenciar escolas e alunos. 
 ## 📋 Requisitos
 
 Antes de rodar o projeto, certifique-se de ter instalado:
@@ -43,7 +42,6 @@ A configuração do banco de dados está no arquivo `application.properties` ou 
 
 ## 📡 Endpoints
 Após iniciar o projeto, acesse a API em:
-- `http://localhost:8080/api/v1/` (ajuste a porta conforme necessário)
 
 - Documentação Swagger disponível em `http://localhost:8080/swagger-ui.html`
 

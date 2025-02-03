@@ -1,4 +1,4 @@
-package com.gabriel.crud.controllers.escola;
+package com.gabriel.crud.controllers;
 
 import com.gabriel.crud.domain.entities.Escola;
 import com.gabriel.crud.services.EscolaService;
@@ -24,17 +24,17 @@ public class EscolaController {
     }
 
     @PostMapping
-    public Escola save(@RequestBody EscolaDto dto) {
-        return escolaService.save(dto);
+    public Escola save(@RequestBody Escola escola) {
+        return escolaService.save(escola);
     }
 
     @PutMapping("/{id}")
-    public Escola update(@PathVariable Long id, @RequestBody EscolaDto dto) {
-        return escolaService.update(id, dto);
+    public Escola update(@PathVariable Long id, @RequestBody Escola escola) {
+        return escolaService.update(id, escola);
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Long id) {
-        return escolaService.delete(id);
+    public void delete(@PathVariable Long id) {
+        escolaService.delete(id);
     }
 }

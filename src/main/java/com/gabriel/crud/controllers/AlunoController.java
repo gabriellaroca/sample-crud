@@ -1,4 +1,4 @@
-package com.gabriel.crud.controllers.aluno;
+package com.gabriel.crud.controllers;
 
 import com.gabriel.crud.domain.entities.Aluno;
 import com.gabriel.crud.services.AlunoService;
@@ -24,17 +24,17 @@ public class AlunoController {
     }
 
     @PostMapping
-    public Aluno save(@RequestBody AlunoDto dto) {
-        return alunoService.save(dto);
+    public Aluno save(@RequestBody Aluno aluno) {
+        return alunoService.save(aluno);
     }
 
     @PutMapping("/{id}")
-    public Aluno update(@PathVariable Long id, @RequestBody AlunoDto dto) {
+    public Aluno update(@PathVariable Long id, @RequestBody Aluno dto) {
         return alunoService.update(id, dto);
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Long id) {
-        return alunoService.delete(id);
+    public void delete(@PathVariable Long id) {
+        alunoService.delete(id);
     }
 }

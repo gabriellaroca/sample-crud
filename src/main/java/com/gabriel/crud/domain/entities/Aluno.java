@@ -44,4 +44,9 @@ public class Aluno {
     @JoinColumn(name="aluno_portaria")
     @JsonIgnore
     private List<Portaria> portaria;
+
+    @JsonIgnore
+    public String getNomeCompleto(){
+        return this.nome + " " + this.sobrenome;
+    }
 }

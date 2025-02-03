@@ -1,5 +1,6 @@
-package com.gabriel.crud.controllers.portaria;
+package com.gabriel.crud.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.gabriel.crud.domain.entities.Portaria;
 import com.gabriel.crud.services.PortariaService;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ public class PortariaController {
     private final PortariaService portariaService;
 
     @PostMapping("/entrada/{id}")
-    public Portaria entradaAluno(@PathVariable("id") Long id){
+    public Portaria entradaAluno(@PathVariable("id") Long id) throws JsonProcessingException{
         return portariaService.entrada(id);
     }
 

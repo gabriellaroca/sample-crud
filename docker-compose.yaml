@@ -6,10 +6,29 @@ services:
     ports:
       - "8081:8080"
     restart: always
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      DB_HOST: db
     networks:
-      - postgres_network
+      - app-network
     depends_on:
       - db
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq_container
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - ./rabbitmq/definitions.json:/etc/rabbitmq/definitions.json:ro
+    networks:
+      - app-network
 
   db:
     hostname: db
@@ -23,10 +42,10 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - postgres_network
+      - app-network
 
 networks:
-  postgres_network:
+  app-network:
 
 volumes:
   postgres_data:
